@@ -5,6 +5,10 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Flutter web app for cv admins to manager fields, including data dashboard.">
 
+  <!-- STEP 3: ADD YOUR CLIENT ID -->
+  <meta name="google-signin-client_id" content="73510073663-sibv1aav6a4p4ir009ksfnakq16u25lp.apps.googleusercontent.com">
+
+
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -21,6 +25,35 @@
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+  <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDi6an3ooe2aVvWgdNH7fYRC4sq3UmBZOA",
+      authDomain: "cvorientation-89db9.firebaseapp.com",
+      databaseURL: "https://cvorientation-89db9.firebaseio.com",
+      projectId: "cvorientation-89db9",
+      storageBucket: "cvorientation-89db9.appspot.com",
+      messagingSenderId: "73510073663",
+      appId: "1:73510073663:web:924cc5732ee9dcfaa48f8a",
+      measurementId: "G-TX2QXHCPF9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+
+
+
+  <!-- Flutter Initialization -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {

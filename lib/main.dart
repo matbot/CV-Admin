@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(MyApp());
-}
+import 'app.dart';
+import 'services/firebase_auth.dart';
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+void main() => runApp(
+  /// Inject the [FirebaseAuthService]
+  /// and provide a stream of [User]
+  ///
+  /// This needs to be above [MaterialApp]
+  /// At the top of the widget tree, to
+  /// accomodate for navigations in the app
+  MultiProvider(
+    providers: [
+      Provider(
+        create: (_) => FirebaseAuthService(),
       ),
-      home: Placeholder(),
-    );
-  }
-}
+      StreamProvider(
+        create: (context) =>
+        context.read<FirebaseAuthService>().onAuthStateChanged,
+      ),
+    ],
+    child: MyApp(),
+  ),
+);
